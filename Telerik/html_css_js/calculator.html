@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+    <title>Mission</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='mx-5 my-2 w-50'>
+        <input class="form-control form-control-lg my-2" type="text" placeholder="Въведи число"
+        id='numberID'>
+    </div>
+
+    <div class='mx-5 my-2 w-50'>
+        <input type='button' value='+' class='btn btn-lg btn-primary my-1 px-4' onclick="suberi()">
+        <input type='button' value='-' class='btn btn-lg btn-primary my-1 px-4' onclick="izvadi()">
+        <input type='button' value='*' class='btn btn-lg btn-primary my-1 px-4' onclick="umnoji()">
+        <input type='button' value='/' class='btn btn-lg btn-primary my-1 px-4' onclick="razdeli()">
+        <input type='button' value='=' class='btn btn-lg btn-danger my-1 px-4' onclick="izchisli()">
+    </div>
+
+    <div class='m-5 w-50 border'>
+        <h5>Резултат</h5>
+        <p id='resultcontainerID' style='font-size: 2rem;' class='text-primary'></p>
+    </div>
+
+    <script>
+        'use strict'
+        let result, operaciq;
+        let firstNumber = undefined;
+        let secondNumber = undefined;
+
+        const suberi = function (){
+            operaciq = '+'
+            dobavi()
+        }
+        const izvadi = function (){
+            operaciq = '-'
+            dobavi()
+        }
+        const umnoji = function (){
+            operaciq = '*'
+            dobavi()
+        }
+        const razdeli = function (){
+            operaciq = '/'
+            dobavi()
+        }
+
+        const dobavi = function () {
+            const numberContainer = document.getElementById('numberID')
+            if (!firstNumber)
+            firstNumber=Number(numberContainer.value)
+            else if (!secondNumber) {
+                secondNumber=Number(numberContainer.value)
+                if (operaciq==='+')
+                result=firstNumber+secondNumber;
+                else if (operaciq==='-')
+                result=firstNumber-secondNumber;
+                else if (operaciq==='*')
+                result=firstNumber*secondNumber;
+                else if (operaciq==='/')
+                result=firstNumber/secondNumber;
+            }
+            numberContainer.value = null;
+        }
+        const izchisli = function () {
+            dobavi()
+            const resultcontainer = document.getElementById('resultcontainerID')
+            resultcontainer.innerHTML = result;
+            firstNumber = undefined;
+            secondNumber = undefined;
+        }
+
+    </script>
+</body>
+
+</html>

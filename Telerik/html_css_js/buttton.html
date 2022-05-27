@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+    <title>Demo</title>
+</head>
+
+<body>
+    <a id='butonZaPokajiID' class='btn btn-lg btn-outline-primary my-2 mx-5 px-4' onclick='pokajiSkrij()'>Покажи</a>
+
+    <p id='tekstID' style='visibility: hidden;' class='shadow-md p-2 mx-5 border'>Текст, който се скрива и показва</p>
+
+    <script>
+        let vidjaLiSe = false
+        const tekst = document.getElementById('tekstID')
+        const butonZaPokazvane = document.getElementById('butonZaPokajiID')
+        // console.log(butonZaPokazvane)
+
+        function pokajiSkrij() {
+            if (vidjaLiSe) {
+                tekst.style.visibility = 'hidden'
+                butonZaPokazvane.textContent = 'Покажи'
+                butonZaPokazvane.style.backgroundColor = '#0d6efd'
+                butonZaPokazvane.style.color = 'white'
+                vidjaLiSe = false
+            } else {
+                tekst.style.visibility = 'visible'
+                butonZaPokazvane.textContent = 'Скрий'
+                butonZaPokazvane.style = 'background-color:white;color:#0d6efd;'
+                vidjaLiSe = true
+            }
+        }
+    </script>
+</body>
+
+</html>

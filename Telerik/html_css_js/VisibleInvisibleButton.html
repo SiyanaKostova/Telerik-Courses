@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+    <title>Demo</title>
+</head>
+
+<body>
+    <!-- Бутон за скриване и показване на параграфа -->
+    <input id='toggleBtnID' type='button' value='Покажи' class='btn btn-lg btn-outline-primary my-2 mx-5 px-4'
+        onclick='clicker()'>
+    <p id='togglePID' style='visibility: hidden;' class='shadow-md p-2 mx-5 border'>Текст, който се скрива и показва</p>
+
+    <!-- Бутон за създаване на нов елемент -->
+    <input id='toggleBtnID' type='button' value='Създай елемент' class='btn btn-lg btn-outline-danger my-2 mx-5 px-4'
+        onclick='createEl()'>
+
+    <!-- Празен контейнер, в който ще добавяме елементите -->
+    <div id='emptyID' class='m-5'></div>
+
+    <script>
+        'use strict'
+        // const greeting = "hello"
+        // const number = 2
+
+        // console.log(number + greeting)
+
+        // const foo = function () {
+        //     // let number = 1
+        //     console.log(number)
+        // }
+
+        // foo()
+        // console.log(number)
+
+        // Показване и скриване на параграф
+        const clicker = function () {
+            const parag = document.getElementById('togglePID')
+            const btn = document.getElementById('toggleBtnID')
+            if (parag.style.visibility == 'hidden') {
+                parag.style.visibility = 'visible'
+                btn.value = 'Скрий'
+                parag.innerText = 'Видим текст'
+                // parag.style = 'visibility: visible'
+            } else {
+                parag.style.visibility = 'hidden'
+                btn.value = 'Покажи'
+                parag.innerText = 'Невидим текст'
+            }
+        }
+
+        // Добавяне на нов елемент в празен контейнер
+        let counter = 0
+        const createEl = function () {
+            document.getElementById('emptyID').innerHTML += "<button class='btn btn-outline-secondary disabled btn-lg m-2'>" + counter++ + "</button>"
+        }
+
+        console.log(typeof(1)) //number
+        console.log(typeof(1.1)) //number
+        console.log(typeof(Nan)) //number
+        console.log(typeof(true)) //boolean
+        console.log(typeof('1')) //string
+        console.log(typeof("11"+"11")) //string
+        console.log(typeof(undefined)) //undefined
+        console.log(typeof(null)) //object
+        console.log(typeof([1,2,3])) //object
+        console.log(typeof(createEl)) //function
+        
+
+    </script>
+</body>
+
+</html>

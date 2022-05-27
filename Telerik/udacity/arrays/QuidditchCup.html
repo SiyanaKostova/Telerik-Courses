@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quidditch Cup</title>
+</head>
+<body>
+    <button onclick="hasEnoughPlayers(arrayInstance)">check</button>
+    
+<script>
+let team = ["Oliver Wood", "Angelina Johnson", "Katie Bell", "Alicia Spinnet", "George Weasley", "Fred Weasley", "Harry Potter"];
+
+function hasEnoughPlayers(arrayInstance) {
+    if (arrayInstance.length >= 7)
+        return true; 
+    else 
+        return false; 
+}
+console.log(hasEnoughPlayers(team));
+</script>
+
+</body>
+</html>

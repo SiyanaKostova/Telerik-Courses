@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+    <title>Demo</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='mx-5 my-2 w-50'>
+        <input class="form-control form-control-lg my-2" type="text" placeholder="Нова задача" id='taskTextID'>
+        <input class="form-control form-control-lg" type="date" id='taskDateID'>
+    </div>
+
+    <input type='button' value='Добави' class='btn btn-lg btn-primary my-2 mx-5 px-4' onclick='addTask()'>
+
+    <div class='m-5 w-50' id='taskContainerID'>
+    </div>
+
+    <script>
+        // Идентифицираме полетата >> input.text, input.date, div
+        // Запазваме полетата в променливи
+        // Mouse event attribute при input.button 
+        // Създаваме брояч за номерацията на задачите
+
+        // Взимаме стойност на полетата (value)
+        // Проверяваме стойността на първото поле (textTask.value)
+        // Проверяваме за дтойността на датата (taskDate.value)
+        // Избираме какъв елемент ще добавим в списъка
+
+        'use strict'
+        let counter = 1
+
+        const addTask = function () {
+            const taskText = document.getElementById('taskTextID')
+            const taskContainer = document.getElementById('taskContainerID')
+            const taskDate = document.getElementById('taskDateID')
+
+            if (taskText.value) {
+                if (taskDate.value) {
+                    // taskContainer.innerHTML += "<div class='shadow-md p-2 border d-flex justify-content-between' id='number" + counter + "ID'><div><a class='text-primary mx-1'>" + counter++ + "</a>" + taskText.value + "</div><a class='text-primary mx-1'>" + taskDate.value + "</a></div>"
+
+                    taskContainer.innerHTML += "<div class='shadow-md p-2 border d-flex justify-content-between --task'><div><a class='text-primary mx-1'>" + counter++ + "</a>" + taskText.value + "</div><a class='text-primary mx-1'>" + taskDate.value + "</a></div>"
+
+                    taskDate.value = null
+                } else
+                    taskContainer.innerHTML += "<div class='shadow-md p-2 border --task'><a class='text-primary mx-1'>" + counter++ + "</a>" + taskText.value + "</div>"
+
+                taskText.value = null
+                // taskText.value = ''
+                // taskText.value = ""
+                // NaN, false, undefind >> string
+            } else 
+                alert('Не добавяй празна задача!')
+            
+            console.log(document.getElementsByClassName('--task'))
+            const tasksCollection = document.getElementsByClassName('--task')
+            console.log(tasksCollection[1])
+            console.log(tasksCollection.length)
+        }
+    </script>
+</body>
+
+</html>

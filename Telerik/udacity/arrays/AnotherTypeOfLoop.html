@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Another Type of Loop</title>
+</head>
+<body>
+    
+<script>
+    var test = [12, 929, 11, 3, 199, 1000, 7, 1, 24, 37, 4,
+    19, 300, 3775, 299, 36, 209, 148, 169, 299,
+    6, 109, 20, 58, 139, 59, 3, 1, 139];
+    test.forEach(function(item, index){
+    if(item%3===0){
+        test[index]=test[index]+100;
+    }
+    else 
+        console.log("Element "+item+" is not divisible by 3");
+});
+console.log(test);
+</script>
+
+</body>
+</html>

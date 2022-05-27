@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown</title>
+</head>
+<body>  
+    
+<script>
+    let t = 60;
+    while (t>=0){
+        if(t==50){
+console.log("Orbiter transfers from ground to internal power")
+        }
+        if(t==31){
+console.log("Ground launch sequencer is go for auto sequence start")
+        }
+        if(t==16){
+console.log("Activate launch pad sound suppression system")
+        }
+        if(t==10){
+console.log("Activate main engine hydrogen burnoff system")
+        }
+        if(t==6){
+console.log("Main engine start")
+        }
+        if(t==0){
+console.log("Solid rocket booster ignition and liftoff!")
+        }
+        console.log("T-" + t + "seconds")
+        t--
+    }
+</script>
+
+</body>
+</html>
